@@ -153,11 +153,12 @@ function catch_that_image() {
   ob_start();
   ob_end_clean();
   $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  
   $first_img = $matches [1] [0];
 
 // Если изображение отсутствует, то выводим изображение по умолчанию (указать путь к изображению)
   if(empty($first_img)){
-    $first_img = get_bloginfo("template_url")."/images/rot-front.jpg";
+    $first_img = get_bloginfo("template_url")."/images/rot-front.png";
   }
   return $first_img;
 }
@@ -174,7 +175,7 @@ function kama_excerpt($args=''){
 		parse_str($args, $i);
 		$maxchar 	 = isset($i['maxchar']) ?  (int)trim($i['maxchar'])		: 350;
 		$text 		 = isset($i['text']) ? 			trim($i['text'])		: '';
-		$save_format = isset($i['save_format']) ?	trim($i['save_format'])			: false;
+		$save_format = isset($i['save_format']) ?	trim($i['save_format'])	: false;
 		$echo		 = isset($i['echo']) ? 			false		 			: true;
 
 	if (!$text){

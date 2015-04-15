@@ -8,8 +8,8 @@
  */
 ?>
 
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	</div><!-- #content -->
+	<footer id="colophon" class="site-footer container" role="contentinfo">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'anarchy' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'anarchy' ), 'WordPress' ); ?></a>
 			<?php /*<span class="sep"> | </span>*/ ?>
@@ -23,4 +23,5 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="js/common.js"></script>
 <?php wp_footer(); ?>
-
+</body>
+</html>

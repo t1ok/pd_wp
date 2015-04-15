@@ -9,16 +9,16 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area container">
-		<main id="main" class="site-main" role="main">
+	<div id="primary" class="content-area container col-sm-9">
+		<main id="main" class="site-main row" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
 				<?php
-					the_archive_title( '<h2 class="page-title">', '</h2>' );
-					// the_archive_description( '<div class="taxonomy-description">', '</div>' );
+					// the_archive_title( '<h2 class="page-title">', '</h2>' );
 				?>
+				<h2 class="page-title"><?php single_term_title(); ?></h2>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
@@ -45,5 +45,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php //get_sidebar(); ?>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

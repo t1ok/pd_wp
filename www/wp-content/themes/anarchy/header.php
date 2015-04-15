@@ -32,19 +32,21 @@
 
 
 	
-	<header class="header container" role="banner">
-	<div class="row text-center head-bg">
-		<h1 class="site-title">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="homes">
-				<?php bloginfo( 'name' ); ?>
-				<img src="<?php bloginfo('template_url'); ?>/images/head2.jpg" alt="<?php bloginfo( 'name' ); ?>" class="img-responsive" />
-			</a>
-		</h1>
-		<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-	</div>
-	</header>
-	<nav class="navbar" role="navigation">
-		<div class="container">
+	<header class="main-header container" role="banner">
+		<div class="text-center head-logo clearfix">
+			<div class="rot-front left visible-md visible-lg"></div>
+			<div class="title-wrapper">
+				<h1 class="site-title">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="homes">
+						<?php bloginfo( 'name' ); ?>
+						<span class="main-logo hidden-xs"></span>
+					</a>
+				</h1>				
+			</div>
+			<div class="rot-front right visible-md visible-lg"></div>
+			<?php /*<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>*/ ?>
+		</div>
+		<nav class="navbar row" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" data-toggle="collapse"><?php bloginfo( 'name' ); ?></a>
@@ -66,18 +68,33 @@
 				$pages = get_pages();
 			?>
 			<div id="nav-bar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="search">
+					<!-- <form role="search" method="get" id="searchform" class="searchform" action="Адрес вашего сайта">
+					<input type="text" value="" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Поиск">
+					</form> -->
+						<aside class="widget widget_search" id="search-1">
+							<form action="http://pd_wp/" id="searchform" class="search-form" method="get" role="search">
+								<!-- <label> -->
+									<span class="screen-reader-text">Найти:</span>
+									<input type="search" title="Найти:" name="s" id="s" value="" placeholder="Пошук…" class="search-field">
+								<!-- </label> -->
+								<input type="submit" id="searchsubmit" value="Поиск" class="search-submit">
+							</form>
+						</aside>
+					</li>
 				<?php
 					if ($categories) {
 						// echo "<pre>";
 						// print_r($categories);
 						// echo "</pre>";
-						$list = "<ul class=\"nav navbar-nav\">";
+						$list = "";
 						foreach ($categories as $cat) {
 							if ($cat->name == "Без рубрики") {
 								continue;
 							}
-							$each_cat = $cat->cat_ID!=6 ? $cat->cat_ID : "";//НЕ ВЫВОДИМ "Библиотеку"
-							$list .= "<li class=\"" . $cat->slug . "\"><a href=\"?cat=". $each_cat ."\"><span>" . $cat->name . "</span></a></li>";	
+							$list .= "<li class=\"" . $cat->slug . "\"><a href=\"?cat=". $cat->cat_ID ."\" class=\"pd_link\"><span>" . $cat->name . "</span><span class=\"pd-icon\"></span></a></li>";	
 						}
 						if (!$pages) {
 							$list .= "</ul>";
@@ -89,17 +106,18 @@
 						// echo "</pre>";
 						foreach ($pages as $page) {
 							// echo $get_page_link($page->ID)."<br/>";
-							$list .= "<li class=\"".$page->post_name."\"><a href=\"#\"><span>".$page->post_title."</span></a></li>";	
+							$list .= "<li class=\"".$page->post_name."\"><a href=\"#\" class=\"pd_link\"><span>".$page->post_title."</span><span class=\"pd-icon\"></span></a></li>";	
 							// echo $page->post_title."<br/>";
 						}
-						$list .= "</ul>";
+						$list .= "";
 					}
 					echo $list;
 					// wp_list_categories( $args );
 				?>
-			</div>
-		</div><!-- /.container-fluid -->
-	</nav>
+				</ul>
+			</div><!-- /.container-fluid -->
+		</nav>
+	</header>
 	
 
 	<?php /*
@@ -116,4 +134,4 @@
 	</header><!-- #masthead -->
 	*/ ?>
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content container">
