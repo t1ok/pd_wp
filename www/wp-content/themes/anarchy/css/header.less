@@ -1,0 +1,119 @@
+.site .main-header{
+	padding-top: 15px;
+	background-color: @dark-grey;
+	border-bottom: 3px solid @red;
+	.head-logo{
+		margin-bottom: 10px;
+		.rot-front{
+			width: 150px;
+			height: 150px;
+			&.left{
+				float: left;
+				background: url(../images/left-rt.png) no-repeat;
+				background-size: cover;
+			}
+			&.right{
+				float: right;
+				background: url(../images/right-rt.png) no-repeat;
+				background-size: cover;
+			}
+			// @media (max-width: 991px){
+			// 	display: none;
+			// }
+		}
+		.title-wrapper{
+			display: inline-block!important;
+			padding-top: 50px;
+
+			h1{
+				text-align: center;
+				font-size: 0;
+				margin-top: 0;
+				// text-indent: -99999px;
+				@media (max-width: 768px) {
+					padding: 0 15px;
+				}
+				.main-logo{
+					background: url(../images/direct-action.png) no-repeat;
+					background-size: cover;
+					display: inline-block;
+					width: 558px;
+					height: 61px;
+
+				}
+			}	
+		}
+
+	}
+
+}
+.navbar{
+	border: 0;
+	margin-bottom: 0;
+	min-height: 1em;
+	.navbar-header{
+		background-color: @grey;
+		.navbar-brand{
+			color: @boot-grey;
+
+			@media (min-width: 768px) {
+				display: none;
+			}
+		}
+		button{
+			box-shadow: none;
+			border: 1px solid @dark-grey;
+			>.icon-bar{
+				background-color: @dark-grey;
+			}
+
+		}
+	}
+	.navbar-nav{
+		// position: relative;
+		display: block;
+		float: none;
+		li{
+			a.pd_link{
+				-webkit-transition: all 200ms ease-out;
+				-moz-transition: all 200ms ease-out;
+				-ms-transition: all 200ms ease-out;
+				-o-transition: all 200ms ease-out;
+				transition: all 200ms ease-out;
+
+				text-decoration: none;
+				line-height: 1.4em;
+				font-weight: bold;
+				color: white;
+				position: relative;
+				padding: 9px 22px 7px 9px;
+				border-bottom: 2px solid transparent;
+				.pd-icon{
+					position: absolute;
+					display: none;
+					height: 100%;
+					top: 0;
+					right: 7px;
+				}
+				&:hover, &:focus{
+					background-color: black;
+					border-bottom: 2px solid @red;
+					.pd-icon{
+						display: inline-block;
+					}
+				}
+			}
+			.widget{
+				margin:0;
+			}
+			&.search{
+				float: right;
+				@media (max-width: 769px){
+					float: none;
+				}
+				// position: absolute;
+				// right: 0;
+			}
+		}
+	}
+}
