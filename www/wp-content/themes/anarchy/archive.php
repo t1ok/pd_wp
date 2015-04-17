@@ -22,6 +22,8 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
+			<?php $numpost = 4; // количество постов в категории ?>
+			<?php $i=0; ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
@@ -29,12 +31,32 @@ get_header(); ?>
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'content', get_post_format() );
+					//get_template_part( 'category', get_post_format() );
 				?>
-
+				<?php $i+=1; ?>
+				<article class="elem col-md-6">
+					<header>
+						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					</header>
+					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="elem-img-wrapper">
+						<img src="<?php echo catch_that_image(); ?>" alt="<?php the_title(); ?>" width="140" height="auto" class="img-rounded" />
+					</a>
+					<div class="post-desc"><?php kama_excerpt('maxchar=152'); ?></div>
+					<footer>
+						<a href="<?php the_permalink(); ?>"><span class="glyphicon glyphicon-link"></span>до публікації</a>
+						<a href="<?php the_permalink(); ?>#comments"><span class='glyphicon glyphicon-comment'></span> <?php comments_number('0 коментарів', '1 коментар', '% коментарів'); ?></a>
+						<time><?php echo get_the_time('G:i d-m-Y'); ?></time>
+					</footer>
+				</article>
+				<?php
+					if ($i == 2 || $i == 4) {
+						echo "<div class='divider'></div>";
+					}
+				?>
 			<?php endwhile; ?>
 
-			<?php the_posts_navigation(); ?>
+			<?php //the_posts_navigation(); ?>
+			<div class="wp-pagenavi col-xs-12"><?php if (function_exists('wp_corenavi')) wp_corenavi(); ?></div>
 
 		<?php else : ?>
 
