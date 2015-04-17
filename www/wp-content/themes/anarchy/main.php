@@ -42,8 +42,13 @@
 								}
 							?>
 						<?php endwhile; ?>
-					<?php endif; ?>
-					<?php wp_reset_query(); ?>
+					<?php else: ?>
+					<?php //wp_reset_query(); ?>
+
+						<?php get_template_part( 'content', 'none' ); ?>
+						
+					<?php //endif; ?>
+
 				</div>
 
 				<?php }  ?>
