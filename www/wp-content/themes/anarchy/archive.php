@@ -22,8 +22,14 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
-			<?php $numpost = 4; // количество постов в категории ?>
-			<?php $i=0; ?>
+			<?php
+				$numpost = 4; // количество постов в категории
+				$i=0;
+				$maxPost = get_option("posts_per_page");
+				$category = get_the_category();
+				$cat_count_posts = get_category($category[0]->cat_ID)->category_count;
+			?>
+			<div class="article-wrap">
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
@@ -49,12 +55,13 @@ get_header(); ?>
 					</footer>
 				</article>
 				<?php
-					if ($i == 2 || $i == 4) {
+					echo $i;
+					if (($i % 2) == 0 ) {
 						echo "<div class='divider'></div>";
 					}
 				?>
 			<?php endwhile; ?>
-
+			</div>
 			<?php //the_posts_navigation(); ?>
 			<div class="wp-pagenavi col-xs-12"><?php if (function_exists('wp_corenavi')) wp_corenavi(); ?></div>
 
