@@ -91,7 +91,7 @@
 						// echo "</pre>";
 						foreach ($pages as $page) {
 							// echo $get_page_link($page->ID)."<br/>";
-							$list .= "<li class=\"".$page->post_name."\"><a href=\"#\" class=\"pd_link\"><span>".$page->post_title."</span><span class=\"pd-icon\"></span></a></li>";	
+							$list .= "<li class=\"".$page->post_name."\"><a href=\"/$page->post_name\" class=\"pd_link\"><span>".$page->post_title."</span><span class=\"pd-icon\"></span></a></li>";	
 							// echo $page->post_title."<br/>";
 						}
 						$list .= "";
