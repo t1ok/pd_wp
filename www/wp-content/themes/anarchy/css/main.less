@@ -2,6 +2,9 @@
 	.elem-holder{
 		margin-top: 25px;
 		padding: 0;
+		&:last-child{
+			margin-bottom: 25px;
+		}
 		h2{
 			margin: 0;
 			font-size: 1em;
@@ -34,6 +37,9 @@
 				display: inline-block;
 				float: left;
 				margin-right: 10px;
+				margin-bottom: 10px;
+			}
+			.post-desc{
 				margin-bottom: 10px;
 			}
 			footer{
@@ -81,6 +87,9 @@
 				margin-right: 10px;
 				margin-bottom: 10px;
 			}
+			.post-desc{
+				margin-bottom: 10px;
+			}
 			footer{
 				clear: left;
 				a{
@@ -92,6 +101,60 @@
 		}
 		.navigation.posts-navigation{
 			float: left;
+		}
+	}
+}
+.single{
+	.site-main{
+		.entry-header{
+			.entry-title{
+				color: @red;
+				text-transform: uppercase;
+			}
+			time{
+				font-size: 1.571em;
+				line-height: 1.3;
+			}
+		}
+		.entry-footer{
+			.h2{
+				color: @red;
+				text-transform: uppercase;
+				border-bottom: 3px solid @red;
+				padding-bottom: 10px;
+			}
+			.similar_records{
+				float: left;
+				width: 100%;
+				ul{
+					margin-left: 0;
+					padding-left: 20px;
+					list-style: none;
+					color: @red;
+					li{
+						display: inline-block;
+						margin: 10px 10px 10px 0;
+						float: left;
+						width: 150px;
+						vertical-align: top;
+						position: relative;
+						a{
+							display: block;
+							margin-bottom: 10px;
+						}
+					}
+				}
+			}
+			.comments-area{
+				.comment-list{
+					margin-left: 0px;
+					.comment-body{
+						border-bottom: 1px dashed #909090;
+					    padding-bottom: 10px;
+					}
+				}
+
+			}
 		}
 	}
 }

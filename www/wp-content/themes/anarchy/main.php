@@ -24,14 +24,16 @@
 								<header>
 									<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 								</header>
+								<?php if (catch_that_image()){ ?>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="elem-img-wrapper">
-									<img src="<?php echo catch_that_image(); ?>" alt="<?php the_title(); ?>" width="140" height="auto" class="img-rounded" />
+									<img src="<?php echo catch_that_image(); ?>" alt="" width="140" height="auto" class="img-rounded" />
 								</a>
+								<?php } ?>
 								<div class="post-desc"><?php kama_excerpt('maxchar=152'); ?></div>
 								<footer>
 									<a href="<?php the_permalink(); ?>"><span class="glyphicon glyphicon-link"></span>до публікації</a>
 									<a href="<?php the_permalink(); ?>#comments"><span class='glyphicon glyphicon-comment'></span> <?php comments_number('0 коментарів', '1 коментар', '% коментарів'); ?></a>
-									<time><?php echo get_the_time('G:i d-m-Y'); ?></time>
+									<time><span class='glyphicon glyphicon-calendar'></span> <?php echo get_the_time('d-m-Y'); ?></time>
 								</footer>
 							</article>
 							<?php

@@ -69,20 +69,8 @@
 			?>
 			<div id="nav-bar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="search">
-					<!-- <form role="search" method="get" id="searchform" class="searchform" action="Адрес вашего сайта">
-					<input type="text" value="" name="s" id="s">
-					<input type="submit" id="searchsubmit" value="Поиск">
-					</form> -->
-						<aside class="widget widget_search" id="search-1">
-							<form action="http://pd_wp/" id="searchform" class="search-form" method="get" role="search">
-								<!-- <label> -->
-									<span class="screen-reader-text">Найти:</span>
-									<input type="search" title="Найти:" name="s" id="s" value="" placeholder="Пошук…" class="search-field">
-								<!-- </label> -->
-								<input type="submit" id="searchsubmit" value="Поиск" class="search-submit">
-							</form>
-						</aside>
+					<li>
+						<a href="/" class="pd_link"><span>Головна</span><span class="pd-icon"></span></a>
 					</li>
 				<?php
 					if ($categories) {
@@ -95,9 +83,6 @@
 								continue;
 							}
 							$list .= "<li class=\"" . $cat->slug . "\"><a href=\"?cat=". $cat->cat_ID ."\" class=\"pd_link\"><span>" . $cat->name . "</span><span class=\"pd-icon\"></span></a></li>";	
-						}
-						if (!$pages) {
-							$list .= "</ul>";
 						}
 					}
 					if ($pages) {
@@ -114,6 +99,21 @@
 					echo $list;
 					// wp_list_categories( $args );
 				?>
+					<li class="search">
+					<!-- <form role="search" method="get" id="searchform" class="searchform" action="Адрес вашего сайта">
+					<input type="text" value="" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Поиск">
+					</form> -->
+						<aside class="widget widget_search" id="search-1">
+							<form action="http://pd_wp/" id="searchform" class="search-form" method="get" role="search">
+								<!-- <label> -->
+									<span class="screen-reader-text">Найти:</span>
+									<input type="search" title="Найти:" name="s" id="s" value="" placeholder="Пошук…" class="search-field">
+								<!-- </label> -->
+								<input type="submit" id="searchsubmit" value="Поиск" class="search-submit">
+							</form>
+						</aside>
+					</li>
 				</ul>
 			</div><!-- /.container-fluid -->
 		</nav>
