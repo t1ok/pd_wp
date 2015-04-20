@@ -159,6 +159,7 @@ function catch_that_image() {
 // Если изображение отсутствует, то выводим изображение по умолчанию (указать путь к изображению)
   if(empty($first_img)){
     $first_img = get_bloginfo("template_url")."/images/rot-front.png";
+    $first_img = false;
   }
   return $first_img;
 }

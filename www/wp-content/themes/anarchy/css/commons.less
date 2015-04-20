@@ -1,5 +1,3 @@
-
-
 //colors
 @grey: #d5d5d5;
 @dark-grey: #303030;
@@ -47,39 +45,6 @@ a{
 
 .site-content{
 	background-color: @grey;
-	// .container{
-	// 	// background-color: #fff;
-	// 	padding-bottom: 60px;
-	// 	.row{
-	// 		.elem-holder{
-	// 			h3{
-	// 				padding: .3em;
-	// 				border-radius: 3px;
-	// 				background-color: #d6d6d6;
-	// 				>a{
-	// 					color: @boot-grey;
-	// 					text-decoration: underline;
-	// 					&:hover{
-	// 						color: @boot-grey;
-	// 					}
-	// 				}
-	// 			}
-	// 			.elem{
-	// 				.elem-img-wrapper{
-	// 					display: inline-block;
-	// 					margin-right: .5em;
-	// 					float: left;
-	// 				}
-	// 				.post-desc{
-	// 					display: inline;
-	// 					*{
-	// 						display: inline;
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
 }
 
 .pd-icon{
@@ -95,15 +60,27 @@ a{
 	width: 100%;
 	padding-bottom: 10px;
 	border-bottom: 1px dashed #9e9e9e;
-	&:last-child{
-		display: none;
+	margin-bottom: 10px;
+}
+
+.tagcloud{
+	a{
+		display: inline-block;
+		padding: 2px 5px 1px;
+		color: white;
+		border-radius: 2px;
+		background-color: #b61a1d;
+		font-size: 1em!important;
+		line-height: 1.2;
+		margin-bottom: 3px;
+		text-decoration: none;
 	}
 }
 .wp-pagenavi{
-	margin-top: 20px;
+	margin-top: 25px;
 	border-top: 3px solid @red;
+	padding-bottom: 25px;
 	.navigation{
-		text-align: center;
 		word-spacing: -.36em;
 		> *{
 			word-spacing: normal;
@@ -114,24 +91,10 @@ a{
 		padding: 6px 10px;
 		color: white;
 		display: inline-block;
-		font-weight: bold;
 	}
 	a{
 		text-decoration: none;
-	}
-	.pages{
-		display: none;
-	}
-	.current{
-		background-color: @red;
-	}
-	.next{
-		float: right;
-		margin-right: -15px;
-	}
-	.prev{
-		float: left;
-		margin-left: -15px;
+		font-weight: bold;
 	}
 }
 

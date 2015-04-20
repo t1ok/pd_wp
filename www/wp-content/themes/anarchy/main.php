@@ -10,41 +10,50 @@
 						// print_r($categories);
 						// echo "</pre>";
 				?>
-				<?php foreach ($categories as $cat) {?>
-
-				<div class="elem-holder col-lg-12">
-					<h2><a href="?cat=<?php echo $cat->cat_ID; ?>"><span><?php echo $cat->name; ?></span><span class="pd-icon"></span></a></h2>
 					<?php if ( have_posts() ) : ?>
-						<?php $numpost = 4; // количество постов в категории ?>
-						<?php query_posts('cat='.$cat->cat_ID.'&showposts='.$numpost); ?>
-						<?php $i=0; ?>
-						<?php while (have_posts()) : the_post(); ?>
-							<?php $i+=1; ?>
-							<article class="elem col-md-6">
-								<header>
-									<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-								</header>
-								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="elem-img-wrapper">
-									<img src="<?php echo catch_that_image(); ?>" alt="<?php the_title(); ?>" width="140" height="auto" class="img-rounded" />
-								</a>
-								<div class="post-desc"><?php kama_excerpt('maxchar=152'); ?></div>
-								<footer>
-									<a href="<?php the_permalink(); ?>"><span class="glyphicon glyphicon-link"></span>до публікації</a>
-									<a href="<?php the_permalink(); ?>#comments"><span class='glyphicon glyphicon-comment'></span> <?php comments_number('0 коментарів', '1 коментар', '% коментарів'); ?></a>
-									<time><?php echo get_the_time('G:i d-m-Y'); ?></time>
-								</footer>
-							</article>
-							<?php
-								if ($i == 2 || $i == 4) {
-									echo "<div class='divider'></div>";
-								}
-							?>
-						<?php endwhile; ?>
-					<?php endif; ?>
-					<?php wp_reset_query(); ?>
-				</div>
+						<?php foreach ($categories as $cat) {?>
 
-				<?php }  ?>
+								<?php $numpost = 4; // количество постов в категории ?>
+								<?php query_posts('cat='.$cat->cat_ID.'&showposts='.$numpost); ?>
+								<?php $i=0; ?>
+								<?php while (have_posts()) : the_post(); ?>
+									<?php $i+=1; ?>
+									<div class="elem-holder col-lg-12">
+										<h2><a href="?cat=<?php echo $cat->cat_ID; ?>"><span><?php echo $cat->name; ?></span><span class="pd-icon"></span></a></h2>
+										<article class="elem col-md-6">
+											<header>
+												<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+											</header>
+											<?php if (catch_that_image()){ ?>
+											<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="elem-img-wrapper">
+												<img src="<?php echo catch_that_image(); ?>" alt="" width="140" height="auto" class="img-rounded" />
+											</a>
+											<?php } ?>
+											<div class="post-desc"><?php kama_excerpt('maxchar=152'); ?></div>
+											<footer>
+												<a href="<?php the_permalink(); ?>"><span class="glyphicon glyphicon-link"></span>до публікації</a>
+												<a href="<?php the_permalink(); ?>#comments"><span class='glyphicon glyphicon-comment'></span> <?php comments_number('0 коментарів', '1 коментар', '% коментарів'); ?></a>
+												<time><span class='glyphicon glyphicon-calendar'></span> <?php echo get_the_time('d-m-Y'); ?></time>
+											</footer>
+										</article>
+										<?php
+											if ($i == 2 || $i == 4) {
+												echo "<div class='divider'></div>";
+											}
+										?>
+									</div>
+								<?php endwhile; ?>
+
+						<?php }  ?>
+						
+					<?php else: ?>
+					<?php //wp_reset_query(); ?>
+
+						<?php get_template_part( 'content', 'none' ); ?>
+
+					<?php endif; ?>
+
+
 
 		<?php //if ( have_posts() ) : ?>
 

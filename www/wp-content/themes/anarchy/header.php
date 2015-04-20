@@ -69,6 +69,36 @@
 			?>
 			<div id="nav-bar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
+					<li>
+						<a href="/" class="pd_link"><span>Головна</span><span class="pd-icon"></span></a>
+					</li>
+				<?php
+					if ($categories) {
+						// echo "<pre>";
+						// print_r($categories);
+						// echo "</pre>";
+						$list = "";
+						foreach ($categories as $cat) {
+							if ($cat->name == "Без рубрики") {
+								continue;
+							}
+							$list .= "<li class=\"" . $cat->slug . "\"><a href=\"?cat=". $cat->cat_ID ."\" class=\"pd_link\"><span>" . $cat->name . "</span><span class=\"pd-icon\"></span></a></li>";	
+						}
+					}
+					if ($pages) {
+						// echo "<pre>";
+						// print_r($pages);
+						// echo "</pre>";
+						foreach ($pages as $page) {
+							// echo $get_page_link($page->ID)."<br/>";
+							$list .= "<li class=\"".$page->post_name."\"><a href=\"/$page->post_name\" class=\"pd_link\"><span>".$page->post_title."</span><span class=\"pd-icon\"></span></a></li>";	
+							// echo $page->post_title."<br/>";
+						}
+						$list .= "";
+					}
+					echo $list;
+					// wp_list_categories( $args );
+				?>
 					<li class="search">
 					<!-- <form role="search" method="get" id="searchform" class="searchform" action="Адрес вашего сайта">
 					<input type="text" value="" name="s" id="s">
@@ -84,36 +114,6 @@
 							</form>
 						</aside>
 					</li>
-				<?php
-					if ($categories) {
-						// echo "<pre>";
-						// print_r($categories);
-						// echo "</pre>";
-						$list = "";
-						foreach ($categories as $cat) {
-							if ($cat->name == "Без рубрики") {
-								continue;
-							}
-							$list .= "<li class=\"" . $cat->slug . "\"><a href=\"?cat=". $cat->cat_ID ."\" class=\"pd_link\"><span>" . $cat->name . "</span><span class=\"pd-icon\"></span></a></li>";	
-						}
-						if (!$pages) {
-							$list .= "</ul>";
-						}
-					}
-					if ($pages) {
-						// echo "<pre>";
-						// print_r($pages);
-						// echo "</pre>";
-						foreach ($pages as $page) {
-							// echo $get_page_link($page->ID)."<br/>";
-							$list .= "<li class=\"".$page->post_name."\"><a href=\"#\" class=\"pd_link\"><span>".$page->post_title."</span><span class=\"pd-icon\"></span></a></li>";	
-							// echo $page->post_title."<br/>";
-						}
-						$list .= "";
-					}
-					echo $list;
-					// wp_list_categories( $args );
-				?>
 				</ul>
 			</div><!-- /.container-fluid -->
 		</nav>
