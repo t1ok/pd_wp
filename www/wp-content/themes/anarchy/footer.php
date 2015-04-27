@@ -11,14 +11,14 @@
 	</div><!-- #content -->
 	<footer id="colophon" class="site-footer container" role="contentinfo">
 		<div class="site-info col-sm-10">
-		<p>Пряма дія - студ профспілка Студентство, прийшов час самоорганізовуватися!</p>
+			<p>«Пряма дія» - незалежна студентська профспілка</p>
 		<?php /*
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'anarchy' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'anarchy' ), 'WordPress' ); ?></a>
 		*/ ?>
 			<?php /*<span class="sep"> | </span>*/ ?>
 			<?php //printf( __( 'Theme: %1$s by %2$s.', 'anarchy' ), 'direct_action', '<a href="http://bigkrp@gmail.com" rel="designer">krp</a>' ); ?>
 		</div><!-- .site-info -->
-		<div class="f-logo col-sm-2 hidden-xs">
+		<?php /*<div class="f-logo col-sm-2 hidden-xs">*/ ?>
 			
 		</div>
 	</footer><!-- #colophon -->

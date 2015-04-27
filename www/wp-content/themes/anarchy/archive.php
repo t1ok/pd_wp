@@ -57,8 +57,8 @@ get_header(); ?>
 					</footer>
 				</article>
 				<?php
-					echo $i;
-					if (($i % 2) == 0 ) {
+					// echo $i;
+					if (($i % 2) == 0) {
 						echo "<div class='divider'></div>";
 					}
 				?>

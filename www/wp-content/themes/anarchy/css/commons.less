@@ -82,15 +82,24 @@ a{
 	padding-bottom: 25px;
 	.navigation{
 		word-spacing: -.36em;
+		text-align: center;
 		> *{
 			word-spacing: normal;
 		}
-	}
-	.page-numbers{
-		background-color: @dark-grey;
-		padding: 6px 10px;
-		color: white;
-		display: inline-block;
+		.page-numbers{
+			background-color: @dark-grey;
+			padding: 6px 10px;
+			color: white;
+			display: inline-block;
+			&.next{
+				position: absolute;
+				right: 0;
+			}
+			&.prev{
+				position: absolute;
+				left: 0;
+			}
+		}
 	}
 	a{
 		text-decoration: none;

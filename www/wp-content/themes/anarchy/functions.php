@@ -229,7 +229,7 @@ function wp_corenavi() {
 	$a['next_text'] = '<span class="glyphicon glyphicon-chevron-right"></span>'; //текст ссылки "Следующая страница"
 
 	if ($max > 1) echo '<div class="navigation">';
-	if ($total == 1 && $max > 1) $pages = '<span class="pages">Страница ' . $current . ' из ' . $max . '</span>'."\r\n";
+	// if ($total == 1 && $max > 1) $pages = '<span class="pages">Страница ' . $current . ' из ' . $max . '</span>'."\r\n";
 	echo $pages . paginate_links($a);
 	if ($max > 1) echo '</div>';
 }
