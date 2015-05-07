@@ -61,7 +61,7 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<?php
 				$args = array(
-					'hide_empty' => 0,//показать пустые категории
+					//'hide_empty' => 0,//показать пустые категории
 					'orderby'	 => 'ID'
 				);
 				$categories = get_categories($args);
