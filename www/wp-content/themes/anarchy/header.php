@@ -34,7 +34,7 @@
 	
 	<header class="main-header container" role="banner">
 		<div class="text-center head-logo clearfix">
-			<div class="rot-front left visible-md visible-lg"></div>
+			<?php /*<div class="rot-front left visible-md visible-lg"></div>*/ ?>
 			<div class="title-wrapper">
 				<h1 class="site-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="homes">
@@ -43,7 +43,7 @@
 					</a>
 				</h1>				
 			</div>
-			<div class="rot-front right visible-md visible-lg"></div>
+			<?php /*<div class="rot-front right visible-md visible-lg"></div>*/ ?>
 			<?php /*<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>*/ ?>
 		</div>
 		<nav class="navbar row" role="navigation">
