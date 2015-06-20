@@ -6,6 +6,8 @@
  *
  * @package direct_action
  */
+
+$url = esc_url( home_url( '/' ) );
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -37,7 +39,7 @@
 			<?php /*<div class="rot-front left visible-md visible-lg"></div>*/ ?>
 			<div class="title-wrapper">
 				<h1 class="site-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="homes">
+					<a href="<?php echo $url; ?>" rel="homes">
 						<?php bloginfo( 'name' ); ?>
 						<span class="main-logo hidden-xs"></span>
 					</a>
@@ -49,7 +51,7 @@
 		<nav class="navbar row" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" data-toggle="collapse"><?php bloginfo( 'name' ); ?></a>
+				<a class="navbar-brand" href="<?php echo $url; ?>" rel="home" data-toggle="collapse"><?php bloginfo( 'name' ); ?></a>
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-bar">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
@@ -82,7 +84,7 @@
 							if ($cat->name == "Без рубрики") {
 								continue;
 							}
-							$list .= "<li class=\"" . $cat->slug . "\"><a href=\"?cat=". $cat->cat_ID ."\" class=\"pd_link\"><span>" . $cat->name . "</span><span class=\"pd-icon\"></span></a></li>";	
+							$list .= "<li class=\"" . $cat->slug . "\"><a href=\"". $url ."?cat=". $cat->cat_ID ."\" class=\"pd_link\"><span>" . $cat->name . "</span><span class=\"pd-icon\"></span></a></li>";	
 						}
 					}
 					if ($pages) {
@@ -91,7 +93,7 @@
 						// echo "</pre>";
 						foreach ($pages as $page) {
 							// echo $get_page_link($page->ID)."<br/>";
-							$list .= "<li class=\"".$page->post_name."\"><a href=\"/?page_id=".$page->ID."\" class=\"pd_link\"><span>".$page->post_title."</span><span class=\"pd-icon\"></span></a></li>";	
+							$list .= "<li class=\"".$page->post_name."\"><a href=\"". $url ."?page_id=".$page->ID."\" class=\"pd_link\"><span>".$page->post_title."</span><span class=\"pd-icon\"></span></a></li>";	
 							// echo $page->post_title."<br/>";
 						}
 						$list .= "";
