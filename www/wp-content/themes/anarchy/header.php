@@ -68,6 +68,8 @@ $url = esc_url( home_url( '/' ) );
 				);
 				$categories = get_categories($args);
 				$pages = get_pages();
+
+				$events = em_get_categories();
 			?>
 			<div id="nav-bar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -97,6 +99,16 @@ $url = esc_url( home_url( '/' ) );
 							// echo $page->post_title."<br/>";
 						}
 						$list .= "";
+					}
+					if ($events) {
+						$list = "<li class=\"dropdown\">"
+							."<a class=\"pd_link dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" >Події <span class=\"caret\"></span></a>"
+								."<ul class=\"dropdown-menu\">";
+						foreach ($events as $eventCategory) {
+							// echo $eventCategory->slug;
+							$list .= "<li class=\"".$eventCategory->slug."\" ><a href=\"". $url ."direct-events/category/".$eventCategory->slug."\">".$eventCategory->name."</a></li>";
+						}
+						$list .= "</ul></li>";
 					}
 					echo $list;
 					// wp_list_categories( $args );

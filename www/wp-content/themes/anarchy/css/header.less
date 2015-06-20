@@ -95,7 +95,7 @@
 				text-decoration: none;
 				line-height: 1.4em;
 				font-weight: bold;
-				color: white;
+				color: #fff;
 				position: relative;
 				padding: 9px 22px 7px 9px;
 				border-bottom: 2px solid transparent;
@@ -106,8 +106,8 @@
 					top: 0;
 					right: 7px;
 				}
-				&:hover, &:focus{
-					background-color: black;
+				&:hover, &:active, &:focus{
+					background-color: #000;
 					border-bottom: 2px solid @red;
 					.pd-icon{
 						display: inline-block;
@@ -125,6 +125,34 @@
 				}
 				// position: absolute;
 				// right: 0;
+			}
+			&.dropdown{
+				a.pd_link{
+					padding: 9px 7px 7px 9px;
+				}
+				&.open{
+					>a{
+						background-color: #000;
+					}
+				}
+				.dropdown-menu{
+					background-color: #000;
+					li a{
+						text-decoration: none;
+						color: #fff;
+
+						-webkit-transition: all linear 200ms;
+						-moz-transition: all linear 200ms;
+						-ms-transition: all linear 200ms;
+						-o-transition: all linear 200ms;
+						transition: all linear 200ms;
+
+						&:hover, &:active, &:focus{
+							color: #fff;
+							background-color: @red;
+						}
+					}
+				}
 			}
 		}
 	}
