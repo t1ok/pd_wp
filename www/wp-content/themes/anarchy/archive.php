@@ -23,7 +23,6 @@ get_header(); ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php
-				$numpost = 4; // количество постов в категории
 				$i=0;
 				$maxPost = get_option("posts_per_page");
 				$category = get_the_category();
@@ -40,27 +39,29 @@ get_header(); ?>
 					//get_template_part( 'category', get_post_format() );
 				?>
 				<?php $i+=1; ?>
-				<article class="elem col-md-6">
-					<header>
+				<article class="elem col-md-12">
+					<header class="clearfix">
+						<?php if (catch_that_image()){ ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="elem-img-wrapper">
+							<img src="<?php echo catch_that_image(); ?>" alt="" width="100%" height="auto" class="img-responsive" />
+						</a>
+						<?php } ?>
 						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+						<div class="article-meta">
+							<a href="<?php the_permalink(); ?>#comments"><span class='glyphicon glyphicon-comment'></span> <?php comments_number('0 коментарів', '1 коментар', '% коментарів'); ?></a>
+							<time><span class='glyphicon glyphicon-calendar'></span> <?php echo get_the_time('d-m-Y'); ?></time>
+						</div>
+						<div class="post-desc"><?php kama_excerpt('maxchar=152'); ?></div>
 					</header>
-					<?php if (catch_that_image()){ ?>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="elem-img-wrapper">
-						<img src="<?php echo catch_that_image(); ?>" alt="" width="140" height="auto" class="img-rounded" />
-					</a>
-					<?php } ?>
-					<div class="post-desc"><?php kama_excerpt('maxchar=152'); ?></div>
 					<footer>
 						<a href="<?php the_permalink(); ?>"><span class="glyphicon glyphicon-link"></span>до публікації</a>
-						<a href="<?php the_permalink(); ?>#comments"><span class='glyphicon glyphicon-comment'></span> <?php comments_number('0 коментарів', '1 коментар', '% коментарів'); ?></a>
-						<time><span class='glyphicon glyphicon-calendar'></span> <?php echo get_the_time('d-m-Y'); ?></time>
 					</footer>
 				</article>
 				<?php
 					// echo $i;
-					if (($i % 2) == 0) {
-						echo "<div class='divider'></div>";
-					}
+					// if (($i % 2) == 0) {
+					// 	echo "<div class='divider'></div>";
+					// }
 				?>
 			<?php endwhile; ?>
 			</div>

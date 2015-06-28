@@ -23,35 +23,42 @@
 										while ($secondary_query->have_posts()) : $secondary_query->the_post(); ?>
 										<?php $i+=1; ?>
 											<?php if ($i === 1) : ?>
-												<div class="elem-holder col-lg-12">
-													<h2><a href="?cat=<?php echo $cat->cat_ID; ?>"><span><?php echo $cat->name; ?></span><span class="pd-icon"></span></a></h2>
+												<div class="elem-holder col-lg-6">
+													<h2 class="category-title"><a href="?cat=<?php echo $cat->cat_ID; ?>"><span><?php echo $cat->name; ?></span><span class="pd-icon"></span></a></h2>
 											<?php endif; ?>
 
-													<article class="elem col-md-6">
+													<article class="elem col-lg-12">
 														<header>
+															<?php if (catch_that_image()){ ?>
+															<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="elem-img-wrapper">
+																<img src="<?php echo catch_that_image(); ?>" alt="" width="100%" height="auto" class="img-responsive" />
+															</a>
+															<?php } ?>
 															<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 														</header>
-														<?php if (catch_that_image()){ ?>
-														<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="elem-img-wrapper">
-															<img src="<?php echo catch_that_image(); ?>" alt="" width="140" height="auto" class="img-rounded" />
-														</a>
-														<?php } ?>
+														<div class="article-meta">
+															<a href="<?php the_permalink(); ?>#comments"><span class='glyphicon glyphicon-comment'></span> <?php comments_number('0 коментарів', '1 коментар', '% коментарів'); ?></a>
+															<time><span class='glyphicon glyphicon-calendar'></span> <?php echo get_the_time('d-m-Y'); ?></time>
+														</div>
 														<div class="post-desc"><?php kama_excerpt('maxchar=152'); ?></div>
 														<footer>
 															<a href="<?php the_permalink(); ?>"><span class="glyphicon glyphicon-link"></span>до публікації</a>
-															<a href="<?php the_permalink(); ?>#comments"><span class='glyphicon glyphicon-comment'></span> <?php comments_number('0 коментарів', '1 коментар', '% коментарів'); ?></a>
-															<time><span class='glyphicon glyphicon-calendar'></span> <?php echo get_the_time('d-m-Y'); ?></time>
 														</footer>
 													</article>
 											<?php
-												if ($i == 2) {
-													echo "<div class='divider'></div>";
-												}
+												// if ($i == 2) {
+												// 	echo "<div class='divider'></div>";
+												// }
 											?>
 											<?php if ($i===$numpost) : ?>
 												</div>
 											<?php endif; ?>
-									<?php endwhile; ?>
+									<?php
+										endwhile;
+										if ($i<$numpost){ // если постов меньше чем макс к-тво закрываем блок категории
+											// echo "</div>";
+										}
+									?>
 							<?php endif; ?>
 
 						<?php }  ?>
