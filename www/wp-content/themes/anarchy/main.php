@@ -23,11 +23,11 @@
 										while ($secondary_query->have_posts()) : $secondary_query->the_post(); ?>
 										<?php $i+=1; ?>
 											<?php if ($i === 1) : ?>
-												<div class="elem-holder col-lg-6">
+												<div class="elem-holder col-sm-12">
 													<h2 class="category-title"><a href="?cat=<?php echo $cat->cat_ID; ?>"><span><?php echo $cat->name; ?></span><span class="pd-icon"></span></a></h2>
 											<?php endif; ?>
 
-													<article class="elem col-lg-12">
+													<article class="elem col-sm-6">
 														<header>
 															<?php if (catch_that_image()){ ?>
 															<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="elem-img-wrapper">
@@ -50,13 +50,13 @@
 												// 	echo "<div class='divider'></div>";
 												// }
 											?>
-											<?php if ($i===$numpost) : ?>
-												</div>
-											<?php endif; ?>
+											<?php if ($i===$numpost) :
+												// echo "</div>";
+											endif; ?>
 									<?php
 										endwhile;
-										if ($i<$numpost){ // если постов меньше чем макс к-тво закрываем блок категории
-											// echo "</div>";
+										if ($i<=$numpost){ // если постов меньше чем макс к-тво закрываем блок категории
+											echo "</div>";
 										}
 									?>
 							<?php endif; ?>
