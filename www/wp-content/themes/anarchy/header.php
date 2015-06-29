@@ -38,12 +38,12 @@ $url = esc_url( home_url( '/' ) );
 		<div class="text-center head-logo clearfix">
 			<?php /*<div class="rot-front left visible-md visible-lg"></div>*/ ?>
 			<div class="title-wrapper">
-				<h1 class="site-title">
+				<div class="site-title">
 					<a href="<?php echo $url; ?>" rel="homes">
 						<?php bloginfo( 'name' ); ?>
 						<span class="main-logo hidden-xs"></span>
 					</a>
-				</h1>				
+				</div>				
 			</div>
 			<?php /*<div class="rot-front right visible-md visible-lg"></div>*/ ?>
 			<?php /*<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>*/ ?>
@@ -69,7 +69,10 @@ $url = esc_url( home_url( '/' ) );
 				$categories = get_categories($args);
 				$pages = get_pages();
 
-				$events = em_get_categories();
+				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+				if (is_plugin_active('events-maker.php')) {
+					$events = em_get_categories();
+				}
 			?>
 			<div id="nav-bar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -122,7 +125,7 @@ $url = esc_url( home_url( '/' ) );
 					<input type="submit" id="searchsubmit" value="Поиск">
 					</form> -->
 						<aside class="widget widget_search" id="search-1">
-							<form action="http://pd_wp/" id="searchform" class="search-form" method="get" role="search">
+							<form action="<?php echo $url; ?>" id="searchform" class="search-form" method="get" role="search">
 								<!-- <label> -->
 									<span class="screen-reader-text">Найти:</span>
 									<input type="search" title="Найти:" name="s" id="s" value="" placeholder="Пошук…" class="search-field">
