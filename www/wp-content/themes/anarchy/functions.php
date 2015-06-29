@@ -163,13 +163,13 @@ function catch_that_image() {
 		ob_start();
 		ob_end_clean();
 		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-		$first_img ='<img src="/resize/timthumb.php?src=' . $matches [1] [0] . '&h=250&w=400&zc=2" alt="" width="100%" height="auto" class="img-responsive" />';
+		$first_img ='<img src="wp-content/themes/anarchy/resize/timthumb.php?src=' . $matches [1] [0] . '&h=250&w=400&zc=2" alt="" width="100%" height="auto" class="img-responsive" />';
 	}
 
 // Если изображение отсутствует, то выводим изображение по умолчанию (указать путь к изображению)
 	if(empty($first_img)){
-		$first_img = "<img src='/resize/timthumb.php?src=http://direct-action.org.ua/wp-content/uploads/2015/06/VpmZZBJDnXg1.jpg&h=250&w=400&zc=2 alt='' width='100%' height='auto' class='img-responsive' />";
-		$first_img = false;
+		$first_img = "<img src='wp-content/themes/anarchy/resize/timthumb.php?src=http://direct-action.org.ua/wp-content/uploads/2015/06/VpmZZBJDnXg1.jpg&h=250&w=400&zc=2 alt='' width='100%' height='auto' class='img-responsive' />";
+		// $first_img = false;
 	}
 	return $first_img;
 }
