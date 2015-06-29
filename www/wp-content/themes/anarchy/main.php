@@ -3,7 +3,7 @@
 				<?php
 					$args = array(
 						'hide_empty' => 0,//показать пустые категории
-						'orderby'	 => 'ID'
+						'orderby'	 => 'order'
 					);
 					$categories = get_categories($args);
 						// echo "<pre>";
