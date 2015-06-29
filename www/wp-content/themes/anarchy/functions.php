@@ -47,6 +47,7 @@ function anarchy_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 400, 250, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -149,19 +150,28 @@ require get_template_directory() . '/inc/jetpack.php';
 
 function catch_that_image() {
   global $post, $posts;
-  $first_img = '';
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-  
-  $first_img = $matches [1] [0];
+
+	if ( has_post_thumbnail() ) {
+		// Есть! Выводим!
+		$first_img = get_the_post_thumbnail();
+		// echo "<pre>";
+		// echo $first_img;
+		// echo "</pre>";
+	} else {
+		// Нет, нужно использовать другие варианты.
+		$first_img = '';
+		ob_start();
+		ob_end_clean();
+		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+		$first_img ='<img src="/resize/timthumb.php?src=' . $matches [1] [0] . '&h=250&w=400&zc=2" alt="" width="100%" height="auto" class="img-responsive" />';
+	}
 
 // Если изображение отсутствует, то выводим изображение по умолчанию (указать путь к изображению)
-  if(empty($first_img)){
-    $first_img = get_bloginfo("template_url")."/images/rot-front.png";
-    $first_img = false;
-  }
-  return $first_img;
+	if(empty($first_img)){
+		$first_img = "<img src='/resize/timthumb.php?src=http://direct-action.org.ua/wp-content/uploads/2015/06/VpmZZBJDnXg1.jpg&h=250&w=400&zc=2 alt='' width='100%' height='auto' class='img-responsive' />";
+		$first_img = false;
+	}
+	return $first_img;
 }
 
 /* Обрезка текста - excerpt
