@@ -52,10 +52,11 @@
 				        $my_query->the_post();
 				    ?>
 				        <li class="">
-				        	<?php if (catch_that_image()) {?>
-					        <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-					        	<img src="<?php echo catch_that_image(); ?>" alt="" class="img-rounded"></a>
-				        	<?php } ?>
+				        	<?php if (catch_that_image()){ ?>
+							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="elem-img-wrapper">
+								<?php echo catch_that_image(); ?>																
+							</a>
+							<?php } ?>
 				        	<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
 				        		<?php the_title(); ?></a>
 				        </li>

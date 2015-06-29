@@ -41,11 +41,12 @@ get_header(); ?>
 				<?php $i+=1; ?>
 				<article class="elem col-md-12">
 					<header class="clearfix">
-						<?php if (catch_that_image()){ ?>
+			        	<?php if (catch_that_image()){ ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="elem-img-wrapper">
-							<img src="<?php echo catch_that_image(); ?>" alt="" width="100%" height="auto" class="img-responsive" />
+							<?php echo catch_that_image(); ?>																
 						</a>
 						<?php } ?>
+
 						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 						<div class="article-meta">
 							<a href="<?php the_permalink(); ?>#comments"><span class='glyphicon glyphicon-comment'></span> <?php comments_number('0 коментарів', '1 коментар', '% коментарів'); ?></a>
