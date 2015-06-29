@@ -95,13 +95,16 @@ $url = esc_url( home_url( '/' ) );
 						// echo "</pre>";
 						foreach ($pages as $page) {
 							// echo $get_page_link($page->ID)."<br/>";
+							if ($page->post_title == 'direct-events') {
+								continue;
+							}
 							$list .= "<li class=\"".$page->post_name."\"><a href=\"". $url ."?page_id=".$page->ID."\" class=\"pd_link\"><span>".$page->post_title."</span><span class=\"pd-icon\"></span></a></li>";	
 							// echo $page->post_title."<br/>";
 						}
 						$list .= "";
 					}
 					if ($events) {
-						$list = "<li class=\"dropdown\">"
+						$list .= "<li class=\"dropdown\">"
 							."<a class=\"pd_link dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" >Події <span class=\"caret\"></span></a>"
 								."<ul class=\"dropdown-menu\">";
 						foreach ($events as $eventCategory) {
