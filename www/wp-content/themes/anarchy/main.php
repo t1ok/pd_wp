@@ -51,12 +51,12 @@
 												// }
 											?>
 											<?php if ($i===$numpost) :
-												// echo "</div>";
+												echo "</div>";
 											endif; ?>
 									<?php
 										endwhile;
 										if ($i<=$numpost){ // если постов меньше чем макс к-тво закрываем блок категории
-											echo "</div>";
+											// echo "</div>";
 										}
 									?>
 							<?php endif; ?>
