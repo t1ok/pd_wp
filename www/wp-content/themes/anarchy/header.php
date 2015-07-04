@@ -41,7 +41,10 @@ $url = esc_url( home_url( '/' ) );
 				<div class="site-title">
 					<a href="<?php echo $url; ?>" rel="homes">
 						<?php bloginfo( 'name' ); ?>
-						<span class="main-logo hidden-xs"></span>
+						<div class="main-logo hidden-sm clearfix">
+							<div class="rot-front"></div>
+							<div class="banner"></div>
+						</div>
 					</a>
 				</div>				
 			</div>
