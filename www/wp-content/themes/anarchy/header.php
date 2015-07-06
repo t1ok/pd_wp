@@ -73,7 +73,7 @@ $url = esc_url( home_url( '/' ) );
 				$pages = get_pages();
 
 				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-				if (is_plugin_active('events-maker.php')) {
+				if (is_plugin_active('events-maker/events-maker.php')) {
 					$events = em_get_categories();
 				}
 			?>
